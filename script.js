@@ -66,6 +66,7 @@ const PRODUCTS = [
     desc: 'O Mimuu é o nosso chaveirinho temático em impressão 3D, feito à mão no estilo amigurumi (crochê), com carinha de vaquinha super fofa. É o mimo perfeito para tornar sua compra ainda mais especial — pode levar avulso ou ganhar de brinde!',
     type: 'single',
     price: 16.00,
+    old: 'R$ 18,00',
     isMimo: true,
     mimoNote: 'Este chaveiro é o mesmo "mimo" que oferecemos de brinde nas compras acima de R$ 60,00 em chocolates e doces importados pelo site. Se preferir, você também pode comprá-lo avulso por R$ 16,00.',
     gallery: ['assets/mimuu-banner-1.jpg']
@@ -129,19 +130,12 @@ function formatBRL(v){ return 'R$ ' + v.toFixed(2).replace('.', ','); }
 const productGrid = document.getElementById('productGrid');
 productGrid.innerHTML = PRODUCTS.map(p => {
   const priceBoxes = p.type === 'variants'
-    ? `<div class="price-grid">${p.variants.map(v => `
-        <div class="price-box"><span class="g">${v.label}</span><span class="old">${v.old}</span><span class="new">${formatBRL(v.price)}</span></div>
+    ? `<div class="price-grid">${p.variants.map((v,i) => `
+        <div class="price-box card-variant-box ${i===0 ? 'selected':''}" data-card-variant="${v.key}"><span class="g">${v.label}</span><span class="old">${v.old}</span><span class="new">${formatBRL(v.price)}</span></div>
       `).join('')}</div>`
-    : `<div class="price-grid price-grid-single"><div class="price-box"><span class="g">Unidade</span><span class="new">${formatBRL(p.price)}</span></div></div>`;
+    : `<div class="price-grid price-grid-single"><div class="price-box"><span class="g">Unidade</span>${p.old ? `<span class="old">${p.old}</span>` : ''}<span class="new">${formatBRL(p.price)}</span></div></div>`;
 
-  const actionBtn = p.type === 'variants'
-    ? `<div class="add-cart-row">
-        <select class="variant-select" data-variant-select="${p.id}">
-          ${p.variants.map(v => `<option value="${v.key}">${v.label} — ${formatBRL(v.price)}</option>`).join('')}
-        </select>
-        <button class="btn btn-primary btn-block" data-add-cart="${p.id}">Adicionar ao carrinho</button>
-      </div>`
-    : `<button class="btn btn-primary btn-block" data-add-cart="${p.id}">Adicionar ao carrinho</button>`;
+  const actionBtn = `<button class="btn btn-primary btn-block" data-add-cart="${p.id}">Adicionar ao carrinho</button>`;
 
   return `
   <article class="product-card reveal ${p.isMimo ? 'is-mimo' : ''}">
@@ -231,7 +225,7 @@ function openModal(id){
   } else {
     modalVariantKey = null;
     modalPriceArea.innerHTML = `
-      <div class="price-grid price-grid-single"><div class="price-box selected"><span class="g">Unidade</span><span class="new">${formatBRL(p.price)}</span></div></div>`;
+      <div class="price-grid price-grid-single"><div class="price-box selected"><span class="g">Unidade</span>${p.old ? `<span class="old">${p.old}</span>` : ''}<span class="new">${formatBRL(p.price)}</span></div></div>`;
   }
 
   if(p.mimoNote){
@@ -543,9 +537,15 @@ document.addEventListener('click', (e) => {
   if(addBtn){
     const id = addBtn.getAttribute('data-add-cart');
     const card = addBtn.closest('.product-card');
-    const select = card ? card.querySelector('[data-variant-select]') : null;
-    const variantKey = select ? select.value : null;
+    const selected = card ? card.querySelector('.card-variant-box.selected') : null;
+    const variantKey = selected ? selected.getAttribute('data-card-variant') : null;
     addToCart(id, variantKey);
+    return;
+  }
+  const cardVariant = e.target.closest('[data-card-variant]');
+  if(cardVariant){
+    cardVariant.closest('.price-grid').querySelectorAll('.card-variant-box').forEach(b => b.classList.remove('selected'));
+    cardVariant.classList.add('selected');
     return;
   }
   const plus = e.target.closest('[data-qty-plus]');
