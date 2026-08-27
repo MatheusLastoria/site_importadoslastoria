@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Importados Lastoria — Doces que Encantam</title>
+<meta name="description" content="Chocolates importados premium direto ao consumidor. Linha Feastables Mr. Beast em 35g e 60g. Compre pela Shopee ou fale no WhatsApp.">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="siteHeader">
+  <div class="container">
+    <a href="#topo" class="brand">
+      <img src="assets/logo.png" alt="Importados Lastoria">
+      <span class="brand-text">
+        <strong>Importados Lastoria</strong>
+        <span>Linha Premium</span>
+      </span>
+    </a>
+
+    <ul class="nav-desktop">
+      <li><a href="#topo" class="nav-link">Início</a></li>
+      <li class="has-dropdown">
+        <a href="#catalogo" class="nav-link">Catálogo <span class="chev"></span></a>
+        <ul class="dropdown">
+          <li><a href="#" data-open-modal="ao-leite"><span class="dot"></span> Chocolate ao Leite</a></li>
+          <li><a href="#" data-open-modal="ao-leite-crocante"><span class="dot"></span> Chocolate ao Leite Crocante</a></li>
+          <li><a href="#" data-open-modal="peanut-butter"><span class="dot"></span> Chocolate de Manteiga de Amendoim</a></li>
+          <li><a href="#" data-open-modal="peanut-butter-crunch"><span class="dot"></span> Chocolate de Manteiga de Amendoim Crocante</a></li>
+          <li><a href="#" data-open-modal="mimuu-vaquinha"><span class="dot"></span> Mimuu Chaveiro Vaquinha</a></li>
+        </ul>
+      </li>
+      <li><a href="#sobre" class="nav-link">Sobre</a></li>
+      <li><a href="#parceiros" class="nav-link">Parceiros</a></li>
+      <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+      <li><a href="#contato" class="nav-link">Contato</a></li>
+    </ul>
+
+    <div class="header-cta">
+      <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="10" cy="21" r="1.4" fill="white"/>
+          <circle cx="18" cy="21" r="1.4" fill="white"/>
+        </svg>
+        <span class="cart-fab-count" id="cartFabCount">0</span>
+      </button>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false"></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav">
+  <a href="#topo">Início</a>
+  <a href="#catalogo">Catálogo</a>
+  <div class="mobile-sub">
+    <a href="#" data-open-modal="ao-leite">— Chocolate ao Leite</a>
+    <a href="#" data-open-modal="ao-leite-crocante">— Chocolate ao Leite Crocante</a>
+    <a href="#" data-open-modal="peanut-butter">— Chocolate de Manteiga de Amendoim</a>
+    <a href="#" data-open-modal="peanut-butter-crunch">— Chocolate de Manteiga de Amendoim Crocante</a>
+    <a href="#" data-open-modal="mimuu-vaquinha">— Mimuu Chaveiro Vaquinha</a>
+  </div>
+  <a href="#sobre">Sobre</a>
+  <a href="#parceiros">Parceiros</a>
+  <a href="#depoimentos">Depoimentos</a>
+  <a href="#contato">Contato</a>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="topo">
+  <canvas id="sparkleCanvas"></canvas>
+  <div class="container hero-inner hero-inner-centered">
+    <div class="hero-copy">
+      <span class="eyebrow">Importados Linha Premium</span>
+      <h1 class="hero-title">Doces que<em>Encantam</em></h1>
+      <p class="hero-sub">Trazemos os chocolates mais desejados do mundo direto para a sua casa em Araras.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
+        <a href="https://wa.me/5519989384050" class="btn btn-outline" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>role a página</span><span class="line"></span></div>
+</section>
+
+
+<div class="strip">
+  <div class="strip-track" id="stripTrack">
+    <span>Chocolate ao Leite</span>
+    <span>Chocolate ao Leite Crocante</span>
+    <span>Chocolate de Manteiga de Amendoim</span>
+    <span>Chocolate de Manteiga de Amendoim Crocante</span>
+    <span>Mimuu Chaveiro Vaquinha 3D</span>
+    <span>Entrega para todo o Brasil</span>
+    <span>Direto da Shopee</span>
+  </div>
+</div>
+
+<!-- ===================== SOBRE ===================== -->
+<section class="sobre" id="sobre">
+  <div class="container sobre-grid">
+    <div class="sobre-visual reveal">
+      <div class="sobre-frame">
+        <img src="assets/logo.png" alt="Importados Lastoria">
+      </div>
+      <div class="sobre-year"><strong>Araras</strong>SP</div>
+    </div>
+    <div class="sobre-copy reveal">
+      <span class="eyebrow">Sobre a Lastoria</span>
+      <h2 class="section-title">Uma paixão por chocolate que virou empresa</h2>
+      <p>Somos uma empresa fundada em Araras com o intuito de vender chocolates de qualidade, importando os melhores do mundo direto para o consumidor.</p>
+      <blockquote>"Escolhemos a dedo cada lote antes de chegar até você — qualidade importada, do jeito que o chocolate merece ser."</blockquote>
+      <p>Ainda estamos no começo dessa jornada, mas nossa missão é clara: queremos nos tornar a referência da cidade para quem busca os lançamentos mais desejados do mundo dos doces, com atendimento próximo e entrega rápida — um passo de cada vez, com muito carinho em cada pedido.</p>
+      <div class="pillars">
+        <div class="pillar"><span class="icon">🍫</span><strong>Importação Direta</strong><span>Selecionamos os melhores lotes</span></div>
+        <div class="pillar"><span class="icon">🤝</span><strong>Parceiros Locais</strong><span>Presente no comércio de Araras</span></div>
+        <div class="pillar"><span class="icon">🚀</span><strong>Entrega Rápida</strong><span>Shopee, WhatsApp e redes sociais</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CATÁLOGO ===================== -->
+<section class="catalogo" id="catalogo">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Catálogo</span>
+      <h2 class="section-title">Linha Feastables Mr. Beast</h2>
+      <p class="section-lede">Quatro sabores em dois tamanhos, mais o nosso mimo temático exclusivo. Adicione ao carrinho e finalizamos seu pedido pelo WhatsApp.</p>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- Modal de produto -->
+<div class="modal-overlay" id="productModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">✕</button>
+    <div class="modal-media">
+      <img id="modalImg" src="" alt="">
+      <div class="modal-thumbs" id="modalThumbs"></div>
+    </div>
+    <div class="modal-body">
+      <h3 id="modalTitle"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+      <p class="modal-mimo-note" id="modalMimoNote" style="display:none;"></p>
+      <div id="modalPriceArea"></div>
+      <p class="modal-note">Ingredientes e informações nutricionais completas na embalagem do produto. Fotos meramente ilustrativas.</p>
+      <button id="modalAddBtn" class="btn btn-primary btn-block">Adicionar ao carrinho</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CARRINHO ===================== -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Seu carrinho <span id="cartCount">0</span></h3>
+    <button class="modal-close" id="cartClose" aria-label="Fechar carrinho">✕</button>
+  </div>
+  <div class="cart-drawer-body">
+    <div class="cart-empty" id="cartEmpty">
+      <span>🛒</span>
+      <p>Seu carrinho está vazio.<br>Adicione produtos do catálogo para montar seu pedido.</p>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+  </div>
+  <div class="cart-mimo-banner" id="cartMimoBanner" style="display:none;"></div>
+  <div class="cart-drawer-foot">
+    <div class="cart-total-row"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
+    <button class="btn btn-primary btn-block" id="cartWhatsBtn" disabled>Fechar pedido no WhatsApp</button>
+    <p class="cart-note">Ao clicar, você envia a lista de produtos escolhidos para o nosso WhatsApp e finalizamos o pagamento e a entrega por lá.</p>
+  </div>
+</aside>
+
+<!-- ===================== PARCEIROS ===================== -->
+<section class="parceiros" id="parceiros">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Parceiros</span>
+      <h2 class="section-title">Quem vende e recomenda a Lastoria</h2>
+      <p class="section-lede">Estamos presentes em pontos parceiros por toda Araras. Clique em uma imagem para abrir a localização no mapa.</p>
+    </div>
+    <div class="partner-grid" id="partnerGrid"></div>
+  </div>
+</section>
+
+<!-- ===================== DEPOIMENTOS ===================== -->
+<section class="depoimentos" id="depoimentos">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Depoimentos</span>
+      <h2 class="section-title">O que dizem sobre a Lastoria</h2>
+      <p class="section-lede">Avaliações reais de clientes da Shopee, com fotos enviadas por eles mesmos.</p>
+    </div>
+    <div class="testi-track" id="testiTrack"></div>
+    <p class="testi-note">* Depoimentos reais retirados das avaliações da Shopee. Por privacidade, não exibimos a foto de perfil do cliente — apenas as fotos do produto enviadas na avaliação.</p>
+  </div>
+</section>
+
+<!-- ===================== CONTATO ===================== -->
+<section class="contato" id="contato">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Contato</span>
+      <h2 class="section-title">Vamos conversar?</h2>
+      <p class="section-lede">Fale com a gente pelo canal que preferir — respondemos rapidinho.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card reveal">
+        <div class="contact-icon">💬</div>
+        <h4>WhatsApp</h4>
+        <p>(19) 98938-4050</p>
+        <a href="https://wa.me/5519989384050" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Chamar agora</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">✉️</div>
+        <h4>E-mail</h4>
+        <p>importadoslastoria@gmail.com</p>
+        <a href="mailto:importadoslastoria@gmail.com" class="btn btn-outline btn-sm">Enviar e-mail</a>
+      </div>
+      <div class="contact-card reveal">
+        <div class="contact-icon">📷</div>
+        <h4>Instagram</h4>
+        <p>@importadoslastoria</p>
+        <a href="https://instagram.com/importadoslastoria" class="btn btn-outline btn-sm" target="_blank" rel="noopener">Seguir no Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/logo.png" alt="Importados Lastoria">
+        <div>
+          <strong>Importados Lastoria</strong>
+          <p>Doces que encantam. Chocolates importados direto para o seu endereço, saindo de Araras/SP.</p>
+        </div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h5>Navegação</h5>
+          <a href="#topo">Início</a>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#parceiros">Parceiros</a>
+          <a href="#depoimentos">Depoimentos</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Importados Lastoria. Todos os direitos reservados.</span>
+      <span>Feito com 🍫 em Araras/SP</span>
+    </div>
+    <div class="footer-credit">Desenvolvido por Matheus Lastoria</div>
+  </div>
+</footer>
+
+<!-- WhatsApp flutuante -->
+<a href="https://wa.me/5519989384050" class="wa-float" target="_blank" rel="noopener" aria-label="Fale conosco no WhatsApp">
+  <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+    <path fill="white" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+</a>
+
+<script src="script.js"></script>
+</body>
+</html>
