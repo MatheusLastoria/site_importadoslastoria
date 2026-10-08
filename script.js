@@ -70,6 +70,54 @@ const PRODUCTS = [
 ];
 
 /* ---------------------------------------------------------
+   LINHA MILKA (16 sabores)
+   Edite aqui: nome, descrição e tamanho de cada sabor.
+   As imagens ficam em assets/produto-milka-<sabor>.jpg
+--------------------------------------------------------- */
+const MILKA_PRODUCTS = [
+  { id: 'milka-alpine-milk', name: 'Milka Alpine Milk', size: '90g',
+    desc: 'O clássico da vaquinha lilás: chocolate ao leite alpino, cremoso e suave, feito com 100% leite alpino. Um sabor que dispensa apresentações.' },
+  { id: 'milka-broken-hazelnut', name: 'Milka Broken Hazelnut', size: '90g',
+    desc: 'Chocolate ao leite alpino com pedaços crocantes de avelã em cada quadradinho. Cremosidade e crocância no mesmo sabor.' },
+  { id: 'milka-bubbly', name: 'Milka Bubbly Alpine Milk', size: '90g',
+    desc: 'O chocolate ao leite alpino em versão aerada: textura leve e cheia de bolhinhas que derrete rapidinho na boca.' },
+  { id: 'milka-caramel', name: 'Milka Caramel', size: '90–100g',
+    desc: 'Chocolate ao leite alpino com recheio cremoso de caramelo que escorre a cada mordida. Para quem ama doce na medida certa.' },
+  { id: 'milka-branco', name: 'Milka Chocolate Branco', size: '90g',
+    desc: 'Chocolate branco Milka: doce, suave e super cremoso, no estilo alpino que só a Milka tem.' },
+  { id: 'milka-chocolate-dessert', name: 'Milka Chocolate Dessert', size: '90–100g',
+    desc: 'Chocolate ao leite alpino com recheio aerado e macio de chocolate, uma sobremesa em forma de barra para quem ama muito cacau.' },
+  { id: 'milka-happy-cow', name: 'Milka Happy Cow', size: '90g',
+    desc: 'Chocolate ao leite com manchinhas de chocolate branco, inspirado nas pintas da vaquinha mais querida da Milka.' },
+  { id: 'milka-oreo-brownie', name: 'Milka Oreo Brownie', size: '90–100g',
+    desc: 'A mistura de Milka com Oreo e recheio sabor brownie: chocolate ao leite alpino com pedaços de biscoito e muito chocolate.' },
+  { id: 'milka-oreo-sandwich', name: 'Milka Oreo Sandwich', size: '92g',
+    desc: 'Chocolate Milka com biscoitos Oreo recheados em cada quadradinho. Crocante por fora, cremoso por dentro.' },
+  { id: 'milka-oreo-white', name: 'Milka Oreo White', size: '90–100g',
+    desc: 'Chocolate branco Milka com pedaços do clássico biscoito Oreo. Doce, cremoso e com aquele toque crocante.' },
+  { id: 'milka-oreo', name: 'Milka Oreo', size: '100g',
+    desc: 'Chocolate ao leite alpino com recheio cremoso e pedaços de biscoito Oreo. A dupla clássica em uma barra só.' },
+  { id: 'milka-raisins-nuts', name: 'Milka Raisins & Nuts', size: '90g',
+    desc: 'Chocolate ao leite alpino com uvas-passas e avelãs. Um sabor tradicional, com a doçura das frutas e a crocância das castanhas.' },
+  { id: 'milka-crispy-rice', name: 'Milka Crispy Rice', size: '90g',
+    desc: 'Chocolate ao leite alpino com pedacinhos de arroz crocante (riso soffiato) que dão aquele "crec" a cada mordida.' },
+  { id: 'milka-strawberry', name: 'Milka Strawberry', size: '90–100g',
+    desc: 'Chocolate ao leite alpino com recheio cremoso de morango. Doce, frutado e muito macio.' },
+  { id: 'milka-whole-hazelnuts', name: 'Milka Whole Hazelnuts', size: '95g',
+    desc: 'Chocolate ao leite alpino com avelãs inteiras: muita crocância e o sabor marcante da avelã em cada pedaço.' },
+  { id: 'milka-yoghurt', name: 'Milka Yoghurt', size: '90–100g',
+    desc: 'Chocolate ao leite alpino com recheio cremoso de iogurte. Uma combinação leve, suave e levemente azedinha.' }
+].map(p => ({
+  id: p.id,
+  name: p.name,
+  img: 'assets/produto-' + p.id + '.jpg',
+  desc: p.desc,
+  type: 'variants',
+  variants: [{ key: p.size, label: p.size }]
+}));
+const ALL_PRODUCTS = [...PRODUCTS, ...MILKA_PRODUCTS];
+
+/* ---------------------------------------------------------
    DADOS DOS PARCEIROS
    Edite "maps" com o link exato do Google Maps de cada
    parceiro quando quiser refinar a localização.
@@ -118,8 +166,7 @@ const TESTIMONIALS = [
 /* ---------------------------------------------------------
    RENDER: Catálogo
 --------------------------------------------------------- */
-const productGrid = document.getElementById('productGrid');
-productGrid.innerHTML = PRODUCTS.map(p => {
+function renderProductCard(p){
   const sizeBoxes = p.type === 'variants'
     ? `<div class="size-grid">${p.variants.map(v => `<div class="size-box"><span class="g">${v.label}</span></div>`).join('')}</div>`
     : '';
@@ -137,7 +184,9 @@ productGrid.innerHTML = PRODUCTS.map(p => {
     </div>
   </article>
 `;
-}).join('');
+}
+document.getElementById('productGrid').innerHTML = PRODUCTS.map(renderProductCard).join('');
+document.getElementById('milkaGrid').innerHTML = MILKA_PRODUCTS.map(renderProductCard).join('');
 
 /* ---------------------------------------------------------
    RENDER: Parceiros
@@ -181,7 +230,7 @@ const modalSizeArea = document.getElementById('modalSizeArea');
 const modalMimoNote = document.getElementById('modalMimoNote');
 
 function openModal(id){
-  const p = PRODUCTS.find(x => x.id === id);
+  const p = ALL_PRODUCTS.find(x => x.id === id);
   if(!p) return;
   const gallery = p.gallery && p.gallery.length ? p.gallery : [p.img];
   modalImg.src = gallery[0];
@@ -288,7 +337,7 @@ reveals.forEach(el => io.observe(el));
    ACTIVE NAV LINK ON SCROLL
 --------------------------------------------------------- */
 const navLinks = document.querySelectorAll('.nav-desktop > li > .nav-link');
-const sections = ['topo','catalogo','sobre','parceiros','depoimentos','contato'].map(id => document.getElementById(id));
+const sections = ['topo','sobre','catalogo','milka','parceiros','depoimentos','contato'].map(id => document.getElementById(id));
 window.addEventListener('scroll', () => {
   let current = sections[0];
   sections.forEach(sec => { if(sec && window.scrollY >= sec.offsetTop - 140) current = sec; });
