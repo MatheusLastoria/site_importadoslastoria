@@ -398,6 +398,12 @@ section{ padding: 96px 0; position:relative; }
 .product-card.is-mimo{ border-color: var(--gold); box-shadow: 0 0 0 1px var(--gold-soft) inset, var(--shadow-card); }
 .foil-peel-mimo{ background: linear-gradient(135deg, var(--red-bright), var(--red-deep)); }
 .foil-peel-mimo span{ color: var(--gold-light); }
+
+/* ===== Linha Milka ===== */
+.milka{ background: var(--cream); }
+.milka .product-media{ background:#3f2d6b; }
+.milka-cta{ text-align:center; margin-top:46px; }
+.milka-cta p{ font-family: var(--font-accent); font-style: italic; font-size:1.25rem; color: var(--ink-soft); margin:0 0 16px; }
 .modal-mimo-note{
   font-size:0.82rem; color: var(--red-deep); background: var(--cream-2); border: 1px dashed var(--gold);
   border-radius: var(--radius-sm); padding: 10px 14px; margin-bottom:16px; line-height:1.55;

@@ -186,7 +186,8 @@ function renderProductCard(p){
 `;
 }
 document.getElementById('productGrid').innerHTML = PRODUCTS.map(renderProductCard).join('');
-document.getElementById('milkaGrid').innerHTML = MILKA_PRODUCTS.map(renderProductCard).join('');
+const milkaGrid = document.getElementById('milkaGrid');
+if(milkaGrid) milkaGrid.innerHTML = MILKA_PRODUCTS.map(renderProductCard).join('');
 
 /* ---------------------------------------------------------
    RENDER: Parceiros
