@@ -40,14 +40,6 @@
     </ul>
 
     <div class="header-cta">
-      <button class="cart-fab" id="cartFab" aria-label="Abrir carrinho">
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h8.2a2 2 0 0 0 2-1.6L21 8H6" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="10" cy="21" r="1.4" fill="white"/>
-          <circle cx="18" cy="21" r="1.4" fill="white"/>
-        </svg>
-        <span class="cart-fab-count" id="cartFabCount">0</span>
-      </button>
       <button class="burger" id="burgerBtn" aria-label="Abrir menu" aria-expanded="false"></button>
     </div>
   </div>
@@ -79,7 +71,7 @@
       <p class="hero-sub">Trazemos os chocolates mais desejados do mundo direto para a sua casa em Araras.</p>
       <div class="hero-actions">
         <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
-        <a href="https://wa.me/5519989384050" class="btn btn-outline" target="_blank" rel="noopener">Comprar no WhatsApp</a>
+        <a href="https://shopee.com.br/importadoslastoria?categoryId=100629&amp;entryPoint=ShopByPDP&amp;itemId=58264738267" class="btn btn-outline" target="_blank" rel="noopener">Comprar na Shopee</a>
       </div>
     </div>
   </div>
@@ -129,7 +121,7 @@
     <div class="section-head center reveal">
       <span class="eyebrow">Catálogo</span>
       <h2 class="section-title">Linha Feastables Mr. Beast</h2>
-      <p class="section-lede">Quatro sabores em dois tamanhos, mais o nosso mimo temático exclusivo. Adicione ao carrinho e finalizamos seu pedido pelo WhatsApp.</p>
+      <p class="section-lede">Quatro sabores em dois tamanhos, mais o nosso mimo temático exclusivo.</p>
     </div>
 
     <div class="product-grid" id="productGrid"></div>
@@ -148,34 +140,11 @@
       <h3 id="modalTitle"></h3>
       <p class="modal-desc" id="modalDesc"></p>
       <p class="modal-mimo-note" id="modalMimoNote" style="display:none;"></p>
-      <div id="modalPriceArea"></div>
+      <div id="modalSizeArea"></div>
       <p class="modal-note">Ingredientes e informações nutricionais completas na embalagem do produto. Fotos meramente ilustrativas.</p>
-      <button id="modalAddBtn" class="btn btn-primary btn-block">Adicionar ao carrinho</button>
     </div>
   </div>
 </div>
-
-<!-- ===================== CARRINHO ===================== -->
-<div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer">
-  <div class="cart-drawer-head">
-    <h3>Seu carrinho <span id="cartCount">0</span></h3>
-    <button class="modal-close" id="cartClose" aria-label="Fechar carrinho">✕</button>
-  </div>
-  <div class="cart-drawer-body">
-    <div class="cart-empty" id="cartEmpty">
-      <span>🛒</span>
-      <p>Seu carrinho está vazio.<br>Adicione produtos do catálogo para montar seu pedido.</p>
-    </div>
-    <div class="cart-items" id="cartItems"></div>
-  </div>
-  <div class="cart-mimo-banner" id="cartMimoBanner" style="display:none;"></div>
-  <div class="cart-drawer-foot">
-    <div class="cart-total-row"><span>Total</span><strong id="cartTotal">R$ 0,00</strong></div>
-    <button class="btn btn-primary btn-block" id="cartWhatsBtn" disabled>Fechar pedido no WhatsApp</button>
-    <p class="cart-note">Ao clicar, você envia a lista de produtos escolhidos para o nosso WhatsApp e finalizamos o pagamento e a entrega por lá.</p>
-  </div>
-</aside>
 
 <!-- ===================== PARCEIROS ===================== -->
 <section class="parceiros" id="parceiros">
