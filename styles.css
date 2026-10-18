@@ -250,8 +250,6 @@ section{ padding: 96px 0; position:relative; }
   line-height:1.7;
 }
 .hero-actions{ display:flex; gap:22px; flex-wrap:wrap; }
-.hero-inner-centered .hero-actions{ flex-direction:column; align-items:center; gap:18px; }
-.hero-shops{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
 .hero-trust{ display:flex; gap:44px; margin-top:56px; flex-wrap:wrap; }
 .hero-trust div{ display:flex; flex-direction:column; gap:6px; }
 .hero-trust strong{ font-family: var(--font-display); color: var(--gold-light); font-size:1.5rem; }
@@ -632,3 +630,43 @@ section{ padding: 96px 0; position:relative; }
   .header-cta{ gap:8px; }
   .burger{ width:38px; height:38px; }
 }
+
+/* =========================================================
+   LINHA BOLÇI + POP-UP
+   ========================================================= */
+.bolci{ background: var(--cream-2); }
+.bolci .product-media{ background:#5a0d12; }
+.bolci .section-lede{ max-width: 760px; }
+.bolci-filters{ display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin: 0 0 36px; }
+.chip{
+  font-family: var(--font-body); font-size:0.85rem; font-weight:500; cursor:pointer;
+  padding: 9px 18px; border-radius:100px; border:1px solid var(--red-deep);
+  background: transparent; color: var(--red-deep); transition: background .2s, color .2s;
+}
+.chip:hover{ background: rgba(122,15,20,0.08); }
+.chip.active{ background: var(--red-deep); color: var(--white); }
+.tag-new{ font-style:normal; font-size:0.6rem; letter-spacing:0.08em; text-transform:uppercase; background: var(--gold); color: var(--red-darker); padding:2px 8px; border-radius:100px; margin-left:6px; }
+#bolciGrid{ grid-template-columns: repeat(4,1fr); }
+@media (max-width: 1080px){ #bolciGrid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width: 620px){ #bolciGrid{ grid-template-columns: 1fr; } }
+
+.promo-overlay{
+  position:fixed; inset:0; z-index:500; background: rgba(30,6,8,0.78);
+  display:flex; align-items:center; justify-content:center; padding:20px;
+  opacity:0; visibility:hidden; transition: opacity .35s ease, visibility .35s;
+  backdrop-filter: blur(3px);
+}
+.promo-overlay.open{ opacity:1; visibility:visible; }
+.promo-card{
+  position:relative; width:min(560px, 100%); max-height:92vh; border-radius: var(--radius-lg);
+  overflow:hidden; box-shadow: 0 40px 90px rgba(0,0,0,0.55); background: var(--red-deep);
+  transform: translateY(20px) scale(0.97); transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+.promo-overlay.open .promo-card{ transform: none; }
+.promo-card img{ display:block; width:100%; height:auto; max-height:92vh; object-fit:contain; }
+.promo-close{
+  position:absolute; top:12px; right:12px; width:40px; height:40px; border-radius:50%;
+  border:none; cursor:pointer; background: rgba(255,255,255,0.95); color: var(--red-deep);
+  font-size:1.15rem; z-index:2; box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+}
+.promo-close:hover{ background: var(--gold-soft); }

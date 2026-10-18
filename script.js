@@ -115,7 +115,31 @@ const MILKA_PRODUCTS = [
   type: 'variants',
   variants: [{ key: p.size, label: p.size }]
 }));
-const ALL_PRODUCTS = [...PRODUCTS, ...MILKA_PRODUCTS];
+/* ---------------------------------------------------------
+   LINHA BOLÇI (novidade)
+   Edite aqui: nome, descrição e tamanhos. Imagens em assets/produto-bolci-*.jpg
+--------------------------------------------------------- */
+const BOLCI_PRODUCTS = [
+  { id: 'bolci-dubai', cat: 'dubai', badge: 'Dubai Chocolate', name: 'Bolçi Dubai Chocolate',
+    img: 'assets/produto-bolci-dubai.jpg',
+    gallery: ['assets/produto-bolci-dubai.jpg', 'assets/produto-bolci-dubai-bombons.jpg'],
+    desc: 'A combinação marcante de chocolate ao leite com creme de pistache e kadayıf crocante. Disponível em barra e também em bombons recheados de pistache e kadayıf.',
+    type: 'variants', variants: [{ key: 'caixa', label: 'Caixa 10 × 65g' }, { key: 'bombons', label: 'Bombons 120g' }] },
+  { id: 'bolci-fragola', cat: 'fragola', badge: 'Fragola', name: 'Bolçi Fragola',
+    img: 'assets/produto-bolci-fragola.jpg',
+    desc: 'Morangos cobertos com chocolate branco ou ao leite, em uma embalagem floral perfeita para presentear.',
+    type: 'variants', variants: [{ key: 'branco', label: 'Chocolate branco · 120g' }, { key: 'leite', label: 'Chocolate ao leite · 120g' }] },
+  { id: 'bolci-cubic', cat: 'cubic', badge: 'Cubic', name: 'Bolçi Cubic',
+    img: 'assets/produto-bolci-cubic.jpg',
+    desc: 'Deliciosos cubos de chocolate com diferentes recheios: gianduja de amêndoa e de avelã, cremes de nozes e de pistache, em versões ao leite e amargo.',
+    type: 'single' },
+  { id: 'bolci-dragee', cat: 'dragee', badge: 'Strawberry Dragee', name: 'Bolçi Strawberry Dragee',
+    img: 'assets/produto-bolci-dragee.jpg',
+    desc: 'Morangos liofilizados envolvidos em diferentes tipos de chocolate: branco, ao leite ou amargo. Crocantes por dentro, cremosos por fora.',
+    type: 'variants', variants: [{ key: 'branco', label: 'Branco · 80g' }, { key: 'leite', label: 'Ao leite · 80g' }, { key: 'amargo', label: 'Amargo · 80g' }] }
+];
+const ALL_PRODUCTS = [...PRODUCTS, ...MILKA_PRODUCTS, ...BOLCI_PRODUCTS];
+
 
 /* ---------------------------------------------------------
    DADOS DOS PARCEIROS
@@ -188,6 +212,35 @@ function renderProductCard(p){
 document.getElementById('productGrid').innerHTML = PRODUCTS.map(renderProductCard).join('');
 const milkaGrid = document.getElementById('milkaGrid');
 if(milkaGrid) milkaGrid.innerHTML = MILKA_PRODUCTS.map(renderProductCard).join('');
+
+/* Bolçi: render + filtro por categoria */
+const bolciGrid = document.getElementById('bolciGrid');
+function renderBolci(filter){
+  const list = BOLCI_PRODUCTS.filter(p => !filter || filter === 'all' || p.cat === filter);
+  bolciGrid.innerHTML = list.map(p => renderProductCard(p).replace('reveal','reveal in')).join('');
+  document.querySelectorAll('#bolciFilters .chip').forEach(c => c.classList.toggle('active', c.dataset.filter === (filter || 'all')));
+}
+renderBolci('all');
+document.getElementById('bolciFilters').addEventListener('click', (e) => {
+  const chip = e.target.closest('.chip');
+  if(chip) renderBolci(chip.dataset.filter);
+});
+document.addEventListener('click', (e) => {
+  const f = e.target.closest('[data-bolci-filter]');
+  if(f){ renderBolci(f.dataset.bolciFilter); closeMobileNav(); }
+});
+
+/* Pop-up de novidade ao entrar no site */
+(function promo(){
+  const popup = document.getElementById('promoPopup');
+  if(!popup) return;
+  const close = () => { popup.classList.remove('open'); document.body.style.overflow = ''; };
+  setTimeout(() => { popup.classList.add('open'); document.body.style.overflow = 'hidden'; }, 600);
+  document.getElementById('promoClose').addEventListener('click', close);
+  document.getElementById('promoLink').addEventListener('click', close);
+  popup.addEventListener('click', (e) => { if(e.target === popup) close(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') close(); });
+})();
 
 /* ---------------------------------------------------------
    RENDER: Parceiros
@@ -338,7 +391,7 @@ reveals.forEach(el => io.observe(el));
    ACTIVE NAV LINK ON SCROLL
 --------------------------------------------------------- */
 const navLinks = document.querySelectorAll('.nav-desktop > li > .nav-link');
-const sections = ['topo','sobre','catalogo','milka','parceiros','depoimentos','contato'].map(id => document.getElementById(id));
+const sections = ['topo','sobre','catalogo','milka','bolci','parceiros','depoimentos','contato'].map(id => document.getElementById(id));
 window.addEventListener('scroll', () => {
   let current = sections[0];
   sections.forEach(sec => { if(sec && window.scrollY >= sec.offsetTop - 140) current = sec; });

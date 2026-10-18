@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Importados Lastoria — Doces que Encantam</title>
-<meta name="description" content="Chocolates importados premium direto ao consumidor. Linha Feastables Mr. Beast em 35g e 60g e 16 sabores de chocolate Milka. Compre pela Shopee, Mercado Livre, TikTok Shop ou fale no WhatsApp.">
+<meta name="description" content="Chocolates importados premium direto ao consumidor. Linha Feastables Mr. Beast em 35g e 60g, 16 sabores de chocolate Milka e a nova linha de chocolates turcos Bolçi. Compre pela Shopee ou fale no WhatsApp.">
 <link rel="icon" href="assets/logo.png">
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -29,6 +29,11 @@
         <ul class="dropdown">
           <li><a href="#catalogo"><span class="dot"></span> Feastables Mr. Beast</a></li>
           <li><a href="#milka"><span class="dot"></span> Milka</a></li>
+          <li><a href="#bolci"><span class="dot"></span> Bolçi <em class="tag-new">Novo</em></a></li>
+          <li><a href="#bolci" data-bolci-filter="dubai"><span class="dot"></span> — Dubai Chocolate</a></li>
+          <li><a href="#bolci" data-bolci-filter="fragola"><span class="dot"></span> — Fragola</a></li>
+          <li><a href="#bolci" data-bolci-filter="cubic"><span class="dot"></span> — Cubic</a></li>
+          <li><a href="#bolci" data-bolci-filter="dragee"><span class="dot"></span> — Strawberry Dragee</a></li>
           <li><a href="#" data-open-modal="mimuu-vaquinha"><span class="dot"></span> Mimuu Chaveiro Vaquinha</a></li>
         </ul>
       </li>
@@ -50,6 +55,7 @@
   <div class="mobile-sub">
     <a href="#catalogo">— Feastables Mr. Beast</a>
     <a href="#milka">— Milka</a>
+    <a href="#bolci">— Bolçi (novo)</a>
     <a href="#" data-open-modal="mimuu-vaquinha">— Mimuu Chaveiro Vaquinha</a>
   </div>
   <a href="#parceiros">Parceiros</a>
@@ -67,11 +73,7 @@
       <p class="hero-sub">Trazemos os chocolates mais desejados do mundo direto para a sua casa em Araras.</p>
       <div class="hero-actions">
         <a href="#catalogo" class="btn btn-primary">Ver catálogo</a>
-        <div class="hero-shops">
-          <a href="https://shopee.com.br/importadoslastoria?categoryId=100629&amp;entryPoint=ShopByPDP&amp;itemId=58264738267" class="btn btn-outline" target="_blank" rel="noopener">Comprar na Shopee</a>
-          <a href="https://www.mercadolivre.com.br/pagina/importadoslastoria#from=share_eshop" class="btn btn-outline" target="_blank" rel="noopener">Comprar no Mercado Livre</a>
-          <a href="https://vt.tiktok.com/ZSgM9nBF7/?page=TikTokShop" class="btn btn-outline" target="_blank" rel="noopener">Comprar no TikTok Shop</a>
-        </div>
+        <a href="https://shopee.com.br/importadoslastoria?categoryId=100629&amp;entryPoint=ShopByPDP&amp;itemId=58264738267" class="btn btn-outline" target="_blank" rel="noopener">Comprar na Shopee</a>
       </div>
     </div>
   </div>
@@ -87,6 +89,7 @@
     <span>Chocolate de Manteiga de Amendoim Crocante</span>
     <span>Mimuu Chaveiro Vaquinha 3D</span>
     <span>Milka — 16 sabores</span>
+    <span>Novo: Linha Bolçi — Chocolate Turco Premium</span>
     <span>Entrega para todo o Brasil</span>
     <span>Direto da Shopee</span>
   </div>
@@ -146,6 +149,42 @@
     </div>
   </div>
 </section>
+
+<!-- ===================== LINHA BOLÇI ===================== -->
+<section class="bolci" id="bolci">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Novidade · Linha Bolçi</span>
+      <h2 class="section-title">Chocolate turco premium que traduz excelência</h2>
+      <p class="section-lede">A linha Bolçi combina chocolates irresistíveis, recheios surpreendentes e apresentações sofisticadas para quem gosta de descobrir novos sabores. Do clássico ao mais elaborado, cada variedade é um convite para transformar pequenos momentos em experiências especiais.</p>
+    </div>
+
+    <div class="bolci-filters reveal" id="bolciFilters" role="tablist" aria-label="Filtrar linha Bolçi">
+      <button class="chip active" data-filter="all">Todos</button>
+      <button class="chip" data-filter="dubai">💚 Dubai Chocolate</button>
+      <button class="chip" data-filter="fragola">🍓 Fragola</button>
+      <button class="chip" data-filter="cubic">🍫 Cubic</button>
+      <button class="chip" data-filter="dragee">🍓 Strawberry Dragee</button>
+    </div>
+
+    <div class="product-grid" id="bolciGrid"></div>
+
+    <div class="milka-cta reveal">
+      <p>Quer saber a disponibilidade da linha Bolçi ou fazer um pedido?</p>
+      <a href="https://wa.me/5519989384050?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20linha%20Bol%C3%A7i." class="btn btn-dark-outline" target="_blank" rel="noopener">Perguntar no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Pop-up de novidade -->
+<div class="promo-overlay" id="promoPopup" role="dialog" aria-modal="true" aria-label="Novidade: Linha Bolçi">
+  <div class="promo-card">
+    <button class="promo-close" id="promoClose" aria-label="Fechar">✕</button>
+    <a href="#bolci" id="promoLink" aria-label="Ver a linha Bolçi">
+      <img src="assets/banner-novidade.jpg" alt="Novidades Linha Bolçi — Chocolate turco premium que traduz excelência">
+    </a>
+  </div>
+</div>
 
 <!-- Modal de produto -->
 <div class="modal-overlay" id="productModal">
@@ -239,6 +278,7 @@
           <a href="#sobre">Sobre</a>
           <a href="#catalogo">Catálogo</a>
           <a href="#milka">Linha Milka</a>
+          <a href="#bolci">Linha Bolçi</a>
           <a href="#parceiros">Parceiros</a>
           <a href="#depoimentos">Depoimentos</a>
         </div>
