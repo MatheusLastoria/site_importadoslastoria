@@ -250,6 +250,8 @@ section{ padding: 96px 0; position:relative; }
   line-height:1.7;
 }
 .hero-actions{ display:flex; gap:22px; flex-wrap:wrap; }
+.hero-inner-centered .hero-actions{ flex-direction:column; align-items:center; gap:18px; }
+.hero-shops{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center; }
 .hero-trust{ display:flex; gap:44px; margin-top:56px; flex-wrap:wrap; }
 .hero-trust div{ display:flex; flex-direction:column; gap:6px; }
 .hero-trust strong{ font-family: var(--font-display); color: var(--gold-light); font-size:1.5rem; }
